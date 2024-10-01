@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #001f3f;
+    color: white;
+    font-family: monospace;
+    font-size: 30px;
+}
+
+.container {
+    display: inline-block;
+    white-space: pre;
+}
+
+.persona {
+    display: inline-block;
+}
+
+.left-arm, .right-arm {
+    display: inline-block;
+    animation: move-arms 0.5s ease-in-out infinite; /* Velocidad rápida */
+}
+
+@keyframes move-arms {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-45deg); /* Aumentado para que los brazos bajen más */
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
