@@ -1,36 +1,25 @@
 body {
+    background-color: #6cd733;
+    font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #120234;
-    color: white;
+    margin: 0;
     font-family: monospace;
-    font-size: 30px;
 }
 
-.container {
-    display: inline-block;
-    white-space: pre;
+.conejo {
+    font-size: 50px;
+    line-height: 1.2;
+    animation: saltar 1s infinite alternate;
 }
 
-.persona {
-    display: inline-block;
-}
-
-.left-arm, .right-arm {
-    display: inline-block;
-    animation: move-arms 0.5s ease-in-out infinite; /* Velocidad rápida */
-}
-
-@keyframes move-arms {
+@keyframes saltar {
     0% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(-45deg); /* Aumentado para que los brazos bajen más */
+        transform: translateY(0);
     }
     100% {
-        transform: rotate(0deg);
+        transform: translateY(-60px);
     }
 }
