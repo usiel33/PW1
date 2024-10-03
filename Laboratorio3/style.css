@@ -1,0 +1,36 @@
+body{
+  background-color: black;
+  color: rgb(255, 255, 255);
+
+}
+
+div a{
+    color: aliceblue;
+    font-size: 20px;
+    
+}
+header{
+font-size: 30px;
+
+}
+.button{
+display: inline-block;
+padding: 6px 40px;
+background-color: blueviolet;
+color: white;
+text-align: center;
+border-radius: 10px;
+text-decoration: none;
+width: 200x;
+border: 1opx;
+}
+.formulario{
+    font-size: 20px;
+    margin-top: 130px;
+    text-align: center;
+    margin-left: 400px;
+    
+}
+.button_buscar{
+    margin-left: 200px;
+}
