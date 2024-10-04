@@ -9,21 +9,19 @@
 <body>
    
     <div class="menu">
-    <a href="busquedasImg.html" class="button">Busquedas de Imagenes</a>
-    <a href="busquedasSimples.html" class="button">Busquedas en Google</a>
-    <a href="buquedaOpcionesAvanzadas.html" class="button">Busquedas con Opciones Avanzadas</a>
-</div>
-<div class="formulario">
+        <a href="busquedasImg.html" class="button">Busquedas de Imagenes</a>
+        <a href="busquedasSimples.html" class="button">Busquedas en Google</a>
+        <a href="buquedaOpcionesAvanzadas.html" class="button">Busquedas con Opciones Avanzadas</a>
+    </div>
 
-    <label form="buscar" >Escriba aqui</label><br>
-    <input type="text" id="busqueda" name="busqueda" required>
-
-
-  </div>
-
-  <div class="button_buscar">
-    <a href="https://www.google.com/advanced_search" class="button">Buscar</a>
- 
+    <div class="formulario">
+        <label for="busqueda">Escriba aquí</label><br>
+        <form action="https://www.google.com/advanced_search" method="get">
+            <input type="text" id="busqueda" name="q" required>
+            <div class="button_buscar">
+                <button type="submit" class="button">Buscar</button>
+            </div>
+        </form>
     </div>
 
 </body>

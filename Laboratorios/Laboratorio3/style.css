@@ -1,36 +1,44 @@
-body{
-  background-color: black;
-  color: rgb(255, 255, 255);
-
+body {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    margin: 0; /* Eliminar margen por defecto */
+    font-family: Arial, sans-serif; /* Fuente legible */
+    text-align: center; /* Centrar el texto en el body */
 }
 
-div a{
-    color: aliceblue;
-    font-size: 20px;
-    
+.formulario {
+    margin: 30px; /* Margen alrededor del formulario */
+    font-size: 20px; /* Tamaño de fuente */
 }
-header{
-font-size: 30px;
 
+.formulario input[type="text"] {
+    padding: 10px; /* Espaciado interno para el campo de texto */
+    margin-right: 10px; /* Espacio entre el campo de texto y el botón */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde del campo de texto */
 }
-.button{
-display: inline-block;
-padding: 6px 40px;
-background-color: blueviolet;
-color: white;
-text-align: center;
-border-radius: 10px;
-text-decoration: none;
-width: 200x;
-border: 1opx;
+
+.button_buscar {
+    display: inline-block; /* Para mantener el botón en la misma línea */
 }
-.formulario{
-    font-size: 20px;
-    margin-top: 130px;
-    text-align: center;
-    margin-left: 400px;
-    
+
+.menu {
+    display: flex;
+    justify-content: center; /* Centrar los botones horizontalmente */
+    gap: 10px; /* Espaciado entre botones */
+    margin: 20px; /* Margen alrededor de la barra de menú */
+    text-align: right;
 }
-.button_buscar{
-    margin-left: 200px;
+
+.button {
+    padding: 10px 20px; /* Espaciado interno */
+    text-decoration: none; /* Eliminar subrayado */
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Efecto al pasar el mouse */
+}
+
+.button:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
 }
