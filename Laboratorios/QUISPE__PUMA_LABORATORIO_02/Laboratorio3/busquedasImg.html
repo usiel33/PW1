@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Búsquedas de Imágenes</title>
+</head>
+<body>
+
+    <div class="menu">
+        <a href="../index.html" >Inicio</a>
+        <a href="buquedasSimples.html" >Búsquedas en Google</a>
+        <a href="buquedaOpcionesAvanzadas.html">Búsquedas con Opciones Avanzadas</a>
+        <a href="busquedasImg.html" >Búsquedas de Imágenes</a>
+    </div>
+
+    <div class="text">
+        <h1>BÚSQUEDA DE IMÁGENES</h1>
+    </div>
+
+    <div class="formulario">
+        <form action="https://www.google.com/search" method="get">
+            <input type="hidden" name="tbm" value="isch"> <!-- Parámetro para búsqueda de imágenes -->
+            <input type="text" id="busqueda" name="q" placeholder="Escriba aquí" required>
+            <div class="button_buscar">
+                <button type="submit" class="button">Buscar</button>
+            </div>
+        </form>
+    </div>
+    <div class="imagen">
+        <img src="/img/google.png" alt="imagen de google" width="200" height="200"> 
+        <img src="/img/linux.png"alt="imagen de linux" width="200" height="230"> 
+
+    </div>
+</body>
+</html>

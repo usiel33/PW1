@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contáctame</title>
+</head>
+<body>
+    <header>
+        <h1>Contáctame</h1>
+    </header>
+    <nav>
+        <a href="index.html" >Inicio</a>
+        <a href="estandaresWeb.html">Estándares Web</a>
+        <a href="Laboratorio3/buquedasSimples.html">Busquedas</a>
+    </nav>
+    <div class="container">
+        <div class="left-menu">
+            <h3>Menú Izquierdo</h3>
+            <a href="autor.html" class="button">Autor</a>
+            <a href="hobbies.html" class="button">Hobbies</a>
+            <a href="ingSistemas.html" class="button">Ing. de Sistemas</a>
+            <a href="galeria.html" class="button">Galería</a>
+        </div>
+        <div class="content">
+            <form>
+                <label for="nombres">Nombres:</label><br>
+                <input type="text" id="nombres" name="nombres" required><br><br>
+
+                <label for="correo">Correo:</label><br>
+                <input type="email" id="correo" name="correo" required><br><br>
+
+                <label>Género:</label><br>
+                <input type="radio" id="masculino" name="genero" value="masculino">
+                <label for="masculino">Masculino</label><br>
+                <input type="radio" id="femenino" name="genero" value="femenino">
+                <label for="femenino">Femenino</label><br><br>
+
+                <label for="nacimiento">Nacimiento:</label><br>
+                <input type="date" id="nacimiento" name="nacimiento" required><br><br>
+
+                <label for="asunto">Asunto:</label><br>
+                <input type="text" id="asunto" name="asunto" required><br><br>
+
+                <label for="contenido">Contenido:</label><br>
+                <textarea id="contenido" name="contenido" rows="4" required></textarea><br><br>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>2024 Mi Pagina Web</p>
+    </footer>
+</body>
+</html>

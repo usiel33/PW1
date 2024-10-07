@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+
+}
+.boton_buscar{
+    position: absolute;
+    top: 10px; /* Posición desde el borde superior */
+    right: 20px; /* Posición desde el borde derecho */
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+header {
+    background: #007BFF;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+.container {
+    display: flex; /* Usamos flexbox para la disposición */
+}
+
+.left-menu {
+    width: 20%; /* Ancho del menú izquierdo */
+    padding: 10px; /* Espaciado interno */
+}
+
+.content {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    width: 80%;
+    
+    margin-right: 40px;
+    font-size: 20px;
+
+}
+
+
+.image-item {
+    margin: 10px; /* Espaciado entre las imágenes */
+    text-align: center; /* Centra el texto del título */
+}
+
+.content img {
+    max-width: 100%; /* Asegura que las imágenes se escalen adecuadamente */
+    height: auto; /* Mantiene la proporción de las imágenes */
+}
+
+/* Estilizamos el boton */
+.button {
+    display: inline-block; 
+    padding: 6px 40px; 
+    background-color: #634caf; 
+    color: white;
+    text-align: center; 
+    text-decoration: none; 
+    border-radius: 2px;
+    transition: background-color 0.3s;
+    margin: 10px;
+    width: 150px;
+}
+
+.button:hover {
+    background-color: #010003;
+}
