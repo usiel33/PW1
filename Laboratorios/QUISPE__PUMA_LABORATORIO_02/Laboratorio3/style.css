@@ -1,9 +1,14 @@
 body {
-    background-color: rgb(12, 2, 32); 
     color: white;
     margin: 0;
     font-family: Arial, sans-serif; 
     text-align: center; 
+    background-image: url(../img/espacio.jfif);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
 }
 
 .text {
@@ -43,12 +48,13 @@ body {
 
 .menu {
     color: black;
-    background-color: #808080;
+    background-color: #13ffebad;
     padding: 20px;
     display: flex; 
     justify-content: space-around;
     gap: 30px;
     margin: 20px;
+    border-radius:10px;
 }
 
 .menu a{
@@ -60,6 +66,6 @@ body {
 }
 
 .menu a:hover {
-    background-color: #666; 
+    background-color:rgba(255, 255, 255, 0.562); 
     border-radius: 5px; 
 }
