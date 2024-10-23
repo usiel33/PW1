@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora en Perl</title>
-    <link rel="stylesheet" href="/css/estilo.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <h1>Calculadora</h1>
-    <form action="/cgi-bin/calculadora.pl" method="GET">
-        <label for="expresion">Ingresa una operación (ej: 5+3): </label>
-        <input type="text" id="expresion" name="expresion">
-        <button type="submit">Calcular</button>
-    </form>
+    <div class="container">
+        <h1>Calculadora</h1>
+        <form action="cgi-bin/calculadora.pl" method="GET">
+            <label for="expresion">Ingresa una operación (ej: (3 + 4) * 3 + 2): </label>
+            <input type="text" id="expresion" name="expresion" required>
+            <button type="submit">Calcular</button>
+        </form>
+    </div>
 </body>
 </html>
