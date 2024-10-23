@@ -30,7 +30,6 @@ if ($expresion) {
         } elsif ($operador eq '*') {
             $resultado = $num1 * $num2;
         } elsif ($operador eq '/') {
-            # Verificar que no se divida entre cero
             if ($num2 == 0) {
                 $resultado = "Error: No se puede dividir entre cero";
             } else {
@@ -46,5 +45,5 @@ if ($expresion) {
     print "<h1>Error: No se ingresó ninguna expresión</h1>";
 }
 
-print "<br><a href='../index.html'>Volver</a>";
+print "<br><a href='/'>Volver</a>";
 print "</body></html>";

@@ -1,26 +1,69 @@
-# Usa la imagen oficial de Apache como base
-FROM httpd:latest
+FROM bitnami/minideb
 
-# Instalar Perl en el contenedor
-RUN apt-get update && apt-get install -y perl
+ENV DEBIAN_FRONTEND="noninteractive"
 
-# Habilitar el módulo CGI en Apache y configurar el directorio cgi-bin
-RUN sed -i '/^#LoadModule cgid_module/s/^#//' /usr/local/apache2/conf/httpd.conf && \
-    echo "ScriptAlias /cgi-bin/ \"/usr/local/apache2/cgi-bin/\"" >> /usr/local/apache2/conf/httpd.conf && \
-    echo "<Directory \"/usr/local/apache2/cgi-bin\">" >> /usr/local/apache2/conf/httpd.conf && \
-    echo "    AllowOverride None" >> /usr/local/apache2/conf/httpd.conf && \
-    echo "    Options +ExecCGI" >> /usr/local/apache2/conf/httpd.conf && \
-    echo "    AddHandler cgi-script .pl" >> /usr/local/apache2/conf/httpd.conf && \
-    echo "    Require all granted" >> /usr/local/apache2/conf/httpd.conf && \
-    echo "</Directory>" >> /usr/local/apache2/conf/httpd.conf
+# Actualizar e instalar dependencias
+RUN apt-get update && \
+    apt-get install -y apache2 perl openssh-server vim bash locales tree libcgi-pm-perl dos2unix && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Copiar los archivos de la calculadora al servidor Apache
-COPY ./index.html /usr/local/apache2/htdocs/
-COPY ./css /usr/local/apache2/htdocs/css
-COPY ./cgi-bin /usr/local/apache2/cgi-bin
+# Configurar locales
+RUN echo -e 'LANG=es_PE.UTF-8\nLC_ALL=es_PE.UTF-8' > /etc/default/locale && \
+    sed -i 's/^# *\(es_PE.UTF-8\)/\1/' /etc/locale.gen && \
+    /sbin/locale-gen es_PE.UTF-8
 
-# Otorgar permisos de ejecución a los scripts Perl en cgi-bin
-RUN chmod +x /usr/local/apache2/cgi-bin/*.pl
+# Crear usuario y directorios
+RUN mkdir -p /home/pweb && \
+    useradd pweb -m && echo "pweb:12345678" | chpasswd && \
+    echo "root:12345678" | chpasswd && \
+    chown pweb:www-data /usr/lib/cgi-bin/ && \
+    chown pweb:www-data /var/www/html/ && \
+    chmod 750 /usr/lib/cgi-bin/ && \
+    chmod 750 /var/www/html/
 
-# Exponer el puerto 80 para el servidor
+# Configurar bash
+RUN echo "export LC_ALL=es_PE.UTF-8" >> /home/pweb/.bashrc && \
+    echo "export LANG=es_PE.UTF-8" >> /home/pweb/.bashrc && \
+    echo "export LANGUAGE=es_PE.UTF-8" >> /home/pweb/.bashrc
+
+# Crear enlaces simbólicos
+RUN ln -s /usr/lib/cgi-bin /home/pweb/cgi-bin && \
+    ln -s /var/www/html/ /home/pweb/html && \
+    ln -s /home/pweb /usr/lib/cgi-bin/toHOME && \
+    ln -s /home/pweb /var/www/html/toHOME
+
+# Copiar y convertir scripts y archivos HTML y CSS
+COPY ./cgi-bin/calculadora.pl /usr/lib/cgi-bin
+RUN dos2unix /usr/lib/cgi-bin/calculadora.pl && \
+    chmod +x /usr/lib/cgi-bin/calculadora.pl
+
+COPY ./css/estilo.css /var/www/html/css/
+COPY ./index.html /var/www/html/
+
+# Configurar Apache para CGI
+RUN echo '<VirtualHost *:80>\n\
+    ServerAdmin webmaster@localhost\n\
+    DocumentRoot /var/www/html\n\
+    ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/\n\
+    <Directory "/usr/lib/cgi-bin">\n\
+        AllowOverride None\n\
+        Options +ExecCGI\n\
+        Require all granted\n\
+    </Directory>\n\
+    ErrorLog ${APACHE_LOG_DIR}/error.log\n\
+    CustomLog ${APACHE_LOG_DIR}/access.log combined\n\
+</VirtualHost>' > /etc/apache2/sites-available/000-default.conf
+
+# Habilitar el módulo CGI
+RUN a2enmod cgid
+
+# Configurar SSH
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+# Exponer puertos
 EXPOSE 80
+EXPOSE 22
+
+# Comando para iniciar los servicios
+CMD ["bash", "-c", "service ssh start && apachectl -D FOREGROUND"]
