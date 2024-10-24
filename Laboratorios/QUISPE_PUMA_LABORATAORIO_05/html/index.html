@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Universidades Licenciadas</title>
+</head>
+
+<body>
+    <form action="../cgi/busquedas.pl" method="GET">
+        <div class="container">
+            <h1>CONSULTAS</h1>
+            <div class="entrada">
+                <label for="nombre-universidad">Nombre de Universidad:</label>
+                <input type="text" id="nombre-universidad" name="nombre_universidad" required>
+
+                <label for="periodo-licenciamiento">Periodo Licenciamiento:</label>
+                <input type="number" id="periodo-licenciamiento" name="periodo_licenciamiento">
+
+                <label for="departamento-local">Departamento Local:</label>
+                <input type="text" id="departamento-local" name="departamento_local">
+
+                <label for="denominacion-programa">Denominación Programa:</label>
+                <input type="text" id="denominacion-programa" name="denominacion_programa">
+            </div>
+            <button type="submit">Buscar</button>
+        </div>
+    </form>
+</body>
+
+</html>
