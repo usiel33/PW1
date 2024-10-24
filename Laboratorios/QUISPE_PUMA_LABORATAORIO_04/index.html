@@ -4,14 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora en Perl</title>
-    <link rel="stylesheet" href="/css/estilo.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <h1>Calculadora</h1>
-    <form action="/cgi-bin/calculadora.pl" method="GET">
-        <label for="expresion">Ingresa una operación (ej: 5+3): </label>
-        <input type="text" id="expresion" name="expresion">
-        <button type="submit">Calcular</button>
-    </form>
+    <div class="container">
+        <h1>CALCULADORA</h1>
+        <form action="cgi-bin/calculadora.pl" method="GET">
+            <div class="input-wrapper">
+                <img src="img/izquierda.png" alt="Imagen Izquierda" class="img-left">
+                <input type="text" id="expresion" name="expresion" placeholder="Ingresa una operación (ej: (3 + 4) * 3 + 2)" required>
+                <img src="img/derecha.png" alt="Imagen Derecha" class="img-right">
+            </div>
+            <button type="submit">Calcular</button>
+        </form>
+        
+    </div>
+    <div class="autor">
+            <h2>Usiel Suriel Quispe Puma</h2>
+
+        </div>
+
 </body>
 </html>

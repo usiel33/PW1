@@ -2,11 +2,12 @@
 use strict;
 use warnings;
 use CGI;
+use Math::BigFloat;
 
 my $cgi = CGI->new;
 
 print $cgi->header('text/html');
-print "<html><head><title>Resultado</title></head><body>";
+print "<html><head><title>Resultado</title><link rel='stylesheet' href='../css/estilo.css'></head><body>";
 
 # Obtener la expresión enviada desde el formulario
 my $expresion = $cgi->param('expresion');
@@ -15,35 +16,34 @@ if ($expresion) {
     # Limpiar la expresión de posibles espacios en blanco
     $expresion =~ s/\s+//g;
 
-    # Expresión regular para detectar números y operadores (+, -, *, /)
-    if ($expresion =~ /^([\-]?\d+\.?\d*)([\+\-\*\/])([\-]?\d+\.?\d*)$/) {
-        my $num1 = $1;
-        my $operador = $2;
-        my $num2 = $3;
-        my $resultado;
+    # Evaluar la expresión usando eval
+    my $resultado = eval_expression($expresion);
 
-        # Realizar la operación correspondiente
-        if ($operador eq '+') {
-            $resultado = $num1 + $num2;
-        } elsif ($operador eq '-') {
-            $resultado = $num1 - $num2;
-        } elsif ($operador eq '*') {
-            $resultado = $num1 * $num2;
-        } elsif ($operador eq '/') {
-            if ($num2 == 0) {
-                $resultado = "Error: No se puede dividir entre cero";
-            } else {
-                $resultado = $num1 / $num2;
-            }
-        }
-
+    if (defined $resultado) {
         print "<h1>Resultado: $resultado</h1>";
     } else {
-        print "<h1>Error: Expresión inválida. Usa el formato: número operador número (ej: 5+3)</h1>";
+        print "<h1>Error: Expresión inválida. Asegúrate de usar un formato válido.</h1>";
     }
 } else {
     print "<h1>Error: No se ingresó ninguna expresión</h1>";
 }
 
-print "<br><a href='/'>Volver</a>";
+# Añadir la clase 'btn' al enlace de 'Volver'
+print "<br><a href='/' class='btn'>Volver</a>";
 print "</body></html>";
+
+sub eval_expression {
+    my ($exp) = @_;
+
+    # Intentar evaluar la expresión
+    my $resultado;
+    eval {
+        $resultado = Math::BigFloat->new(eval $exp);
+    };
+
+    if ($@) {
+        return undef; # Si hay un error en la evaluación
+    }
+
+    return $resultado;
+}

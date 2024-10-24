@@ -1,33 +1,113 @@
 body {
     font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: 50px;
+    border: 2px solid #0072ff;
 }
 
 h1 {
-    color: #333;
+    color: #0072ff;
+    font-size: 34px;
 }
 
 form {
     display: inline-block;
     margin-top: 20px;
+    width: 100%;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
 }
 
 input {
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
-    width: 200px;
+    width: calc(100% - 90px); /* Reduce el tamaño del input */
+    margin-bottom: 15px;
+    border: 2px solid #0072ff;
+    border-radius: 6px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.img-left {
+    position: absolute;
+    left: -340px; /* Ajusta la posición de la imagen */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px; /* Ajusta el tamaño de la imagen */
+}
+
+.img-right {
+    position: absolute;
+    right: -340px; /* Ajusta la posición de la imagen */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px; /* Ajusta el tamaño de la imagen */
 }
 
 button {
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
-    background-color: #28a745;
+    background-color: #0072ff;
     color: white;
     border: none;
+    border-radius: 6px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #0056b3;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #0072ff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    font-size: 16px;
+    transition: background-color 0.3s ease; 
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+.autor{
+    background-color: #1c3cce93;
+    height: 70px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+
 }

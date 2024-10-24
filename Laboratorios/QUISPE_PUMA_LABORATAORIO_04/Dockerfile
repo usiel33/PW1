@@ -33,13 +33,14 @@ RUN ln -s /usr/lib/cgi-bin /home/pweb/cgi-bin && \
     ln -s /home/pweb /usr/lib/cgi-bin/toHOME && \
     ln -s /home/pweb /var/www/html/toHOME
 
-# Copiar y convertir scripts y archivos HTML y CSS
+# Copiar y convertir scripts y archivos HTML, CSS e imágenes
 COPY ./cgi-bin/calculadora.pl /usr/lib/cgi-bin
 RUN dos2unix /usr/lib/cgi-bin/calculadora.pl && \
     chmod +x /usr/lib/cgi-bin/calculadora.pl
 
 COPY ./css/estilo.css /var/www/html/css/
 COPY ./index.html /var/www/html/
+COPY ./img /var/www/html/img/  
 
 # Configurar Apache para CGI
 RUN echo '<VirtualHost *:80>\n\
