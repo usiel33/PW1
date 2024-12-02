@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Crear Nueva Página</title>
+</head>
+<body>
+    <header>
+        <h1>Crear Nueva Página</h1>
+    </header>
+    <div class="container">
+        <form action="/cgi-bin/new.pl" method="post">
+            <label for="page_name">Nombre de la Página:</label>
+            <input type="text" id="page_name" name="page_name" required>
+            
+            <label for="content">Contenido (Markdown):</label>
+            <textarea id="content" name="content" rows="10" required></textarea>
+            
+            <button type="submit">Crear Página</button>
+        </form>
+        <button><a href="/cgi-bin/list.pl">Regresar al Listado</a></button>
+        <a href="index.html" class="button">Volver al Inicio</a>
+    </div>
+    <footer>
+        &copy; @ 2024 Usiel Suriel Quispe Puma
+    </footer>
+</body>
+</html>

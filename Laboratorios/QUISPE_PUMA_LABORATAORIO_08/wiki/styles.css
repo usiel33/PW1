@@ -1,0 +1,203 @@
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Encabezado */
+header {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1rem;
+    color: #bbbbbb;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+}
+
+/* Botones estilizados */
+button, .button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #6200ea;
+    border: none;
+    border-radius: 8px;
+    margin: 1rem 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .button:hover {
+    background-color: #3700b3;
+}
+
+button a, .button a {
+    text-decoration: none;
+    color: white;
+}
+
+button a:hover, .button a:hover {
+    text-decoration: none;
+}
+
+/* Formularios */
+form {
+    margin-top: 1rem;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+input, textarea {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: #2e2e2e;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #6200ea;
+}
+
+/* Listas y elementos visuales */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2e2e2e;
+    padding: 0.8rem;
+    border-radius: 5px;
+}
+
+li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+li a:hover {
+    text-decoration: underline;
+}
+
+li .edit {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+li .delete {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+li .edit:hover {
+    background-color: #388e3c;
+}
+
+li .delete:hover {
+    background-color: #d32f2f;
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #1e1e1e;
+    color: #888;
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+}
+
+/* Código Markdown */
+code {
+    display: block;
+    background-color: #2e2e2e;
+    color: #ffa500;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+}
+
+pre {
+    background-color: #2e2e2e;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+/* Encabezados Markdown */
+h1, h2, h3, h4, h5, h6 {
+    margin: 1rem 0;
+    color: #ffa500;
+}
+
+/* Textos estilizados */
+strong {
+    color: #e59400;
+    font-weight: bold;
+}
+
+em {
+    color: #ffa500;
+    font-style: italic;
+}
+
+del {
+    color: #f44336;
+    text-decoration: line-through;
+}
